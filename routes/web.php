@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-// Route::get('/', 'Factory\FactoryController@index' );
+Route::get('/', 'Factory\FactoryController@index' );
 
 Route::get('/admin', 'Admin\HomeController@index');
 Route::post('/admin/addNewProject', 'Admin\ProjectController@store');
@@ -31,5 +31,5 @@ Route::post('/factory/endRecording/{idRecord}', 'Factory\RecordingController@end
 
 Route::get('/factory/capacitaciones', 'Factory\TrainingController@index');
 
-Route::get('/qa', 'QA\QAController@index');
+// Route::get('/qa', 'QA\QAController@index');
 
