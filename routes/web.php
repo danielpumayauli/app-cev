@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', 'Factory\FactoryController@index' );
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route::get('/', 'Factory\FactoryController@index' );
 
 Route::get('/admin', 'Admin\HomeController@index');
 Route::post('/admin/addNewProject', 'Admin\ProjectController@store');
