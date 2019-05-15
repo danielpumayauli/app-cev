@@ -63,30 +63,30 @@ return [
             ]) : [],
         ],
 
-        // 'awscanvas'  => [
-        //     'driver'     => 'mysql',
-        //     'host'       => 'db-canvasc.crplqw34oyj3.us-east-1.rds.amazonaws.com',
-        //     'database'   => 'db_canvasc',
-        //     'username'   => 'awscanvas',
-        //     'password'   => 'D3c4nv4$Ap1#',
-        //     'charset'    => 'utf8',
-        //     'collation'  => 'utf8_unicode_ci',
-        //     'prefix'     => '',
-        //     'strict'     => false,
-        //  ],
-        
-        /* DB Instituto (momentaneamente)*/
-         'awscanvas'  => [
+        'awscanvas'  => [
             'driver'     => 'mysql',
-            'host'       => 'db-plataforma-chamilo.crplqw34oyj3.us-east-1.rds.amazonaws.com',
-            'database'   => 'db_institutoe',
-            'username'   => 'db_institutoe',
-            'password'   => 'Romfespfrim1',
+            'host'       => 'db-canvasc.crplqw34oyj3.us-east-1.rds.amazonaws.com',
+            'database'   => 'db_canvasc',
+            'username'   => 'awscanvas',
+            'password'   => 'D3c4nv4$Ap1#',
             'charset'    => 'utf8',
             'collation'  => 'utf8_unicode_ci',
             'prefix'     => '',
             'strict'     => false,
          ],
+        
+
+        //  'warmy'  => [
+        //     'driver'     => 'mysql',
+        //     'host'       => '68.183.25.226',
+        //     'database'   => 'db_institutoe',
+        //     'username'   => 'db_institutoe',
+        //     'password'   => 'Romfespfrim1',
+        //     'charset'    => 'utf8',
+        //     'collation'  => 'utf8_unicode_ci',
+        //     'prefix'     => '',
+        //     'strict'     => false,
+        //  ],
 
         'pgsql' => [
             'driver' => 'pgsql',

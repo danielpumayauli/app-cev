@@ -10,10 +10,10 @@ class QAController extends Controller
 {
     public function index()
     {
-        // $dnis = DB::connection('awscanvas')->select("SELECT id, dni FROM `silac_professors` limit 20");
+        $dnis = DB::connection('awscanvas')->select("SELECT id, dni FROM `silac_professors` limit 20");
         // $flag = DB::connection('ie')->select("SELECT * 
         //                                     from `user`
         //                                     limit 8");
-        // dd($flag);
+        dd($dnis);
     }
 }
