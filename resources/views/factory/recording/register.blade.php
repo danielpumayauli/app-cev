@@ -296,7 +296,7 @@
                             processData: false,
                             success:function(data){
                                 data = JSON.parse(data);
-                                console.log('Validation true!', 'se pudo Añadir los datos<br>',data);
+                                // console.log('Validation true!', 'se pudo Añadir los datos<br>',data);
                                 mostrarNotificacion('success','Registro realizado con estado "abierto".', '');
                                 setTimeout("location.href='/factory'", 2500);                                
                             },

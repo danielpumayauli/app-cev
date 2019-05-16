@@ -126,7 +126,7 @@
                                     <div class="col-sm-6 col-md-6">
                                         <div class="form-group borde-select">                              
 
-                                            <select id="plataform" name="plataform" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                                            <select id="plataforma" name="plataforma" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
                                                 
                                                 <option value="CANVAS">PLATAFORMA CANVAS</option>
                                                 <option value="MOODLE">PLATAFORMA MOODLE</option>
@@ -155,10 +155,10 @@
 
                                     <div class="col-sm-6 col-md-6">
                                         <div class="form-group borde-select">
-                                            <select id="motive" name="motive" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" required>
+                                            <select id="reason" name="reason" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" required>
                                                 <option value="0">:: SELECCIONE CAPACITACIÓN O ASESORÍA ::</option>
-                                                <option value="SUSSANE">CAPACITACIÓN</option>
-                                                <option value="ANABELEN">ASESORÍA</option>
+                                                <option value="CAPACITACIÓN">CAPACITACIÓN</option>
+                                                <option value="ASESORÍA">ASESORÍA</option>
                                             </select>
                                         </div>
                                     </div>
@@ -276,7 +276,7 @@
                 }                
             }
 
-            $('#form-recording').on('submit', function(e) {
+            $('#form-training').on('submit', function(e) {
                 e.preventDefault();
 
                 let formData = new FormData(this);
@@ -285,30 +285,42 @@
                 let nombres = $('#nombres').val();
                 let curso = $('#curso').val();
                 let program = $('#program').val();
+                let modalidad = $('#modalidad').val();
+                let platforma = $('#platforma').val();
+                let responsable = $('#responsable').val();
+                let tool = $('#tool').val();
+                let reason = $('#reason').val();
                 let dateStart = $('#dateStart').val();
                 let duration = $('#duration').val();
 
+                
                 if( dni != 0 ){
+                    if(responsable != 0){
+                        if(reason != 0){
+                            $.ajax({
+                                type:'POST',
+                                url: '/factory/capacitaciones/guardar',
+                                data:formData,
+                                cache:false,
+                                contentType: false,
+                                processData: false,
+                                success:function(data){
+                                    data = JSON.parse(data);
+                                    mostrarNotificacion('success','Registro realizado.', '');
+                                    setTimeout("location.href='/factory'", 2500);                              
+                                },
+                                error: function(jqXHR, text, error){
+                                    alert('No se pudo Añadir los datos<br>' + error);
+                                }
+                            });
+                        }else{
+                            mostrarNotificacion('error','Seleccione capacitación o asesoría.', '');
+                        }
+                    }else{
+                        mostrarNotificacion('error','Seleccione un responsable.', '');
+                    }
 
-                        // $.ajax({
-                        //     type:'POST',
-                        //     url: '/factory/grabaciones/guardar',
-                        //     data:formData,
-                        //     cache:false,
-                        //     contentType: false,
-                        //     processData: false,
-                        //     success:function(data){
-                        //         data = JSON.parse(data);
-                        //         console.log('Validation true!', 'se pudo Añadir los datos<br>',data);
-                        //         mostrarNotificacion('success','Registro realizado con estado "abierto".', '');
-                        //         setTimeout("location.href='/factory'", 2500);                                
-                        //     },
-                        //     error: function(jqXHR, text, error){
-                        //         alert('No se pudo Añadir los datos<br>' + error);
-                        //     }
-                        // });
-
-                        console.log('OK');
+                        
 
                         
                     

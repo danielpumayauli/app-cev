@@ -19,4 +19,48 @@ class TrainingController extends Controller
         
         return view('factory/training/register',compact('dnis','resources','rooms'));
     }
+
+    public function store(Request $request)
+    {   
+        $data['error']    = 1;
+        $data['msj']      = null;
+
+        $dni = $request->input('dni');
+        $fullname = $request->input('nombres');
+        $course = $request->input('curso');
+        $program = $request->input('program');
+        $modality = $request->input('modalidad');
+
+        $plataforma = $request->input('plataforma');
+        $responsable = $request->input('responsable');
+        $tool = $request->input('tool');
+        $reason = $request->input('reason');
+        $duration = $request->input('duration');
+        $dateStart = $request->input('dateStart');
+
+        try{
+            $id = DB::connection('awscanvas')->table('factory_trainings')->insertGetId(
+                array(  'dni' => $dni, 
+                        'fullname' => $fullname,
+                        'course' => $course,
+                        'program' => $program,
+                        'modality' => $modality,
+                        'platform' => $plataforma,
+                        'responsable' => $responsable,
+                        'tool' => $tool,
+                        'reason' => $reason,
+                        'state' => 'done',
+                        'duration' => $duration,
+                        'date' => $dateStart,
+                        'created_at' => new \DateTime(),
+                        )
+            );
+            $data['id'] = $id;
+            $data['error']    = 0;
+        }catch(Exception $e){
+            $data['msj'] = $e->getMessage();
+        }
+
+        echo json_encode($data);
+    }
 }
