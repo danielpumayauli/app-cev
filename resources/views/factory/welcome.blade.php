@@ -42,11 +42,14 @@
             <h3>Seleccione un evento:</h3>
 
             <div class="row factory_options">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <a href="/factory/grabaciones" class="hvr-border-fade">GRABACIONES</a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <a href="/factory/capacitaciones" class="hvr-border-fade">CAPACITACIONES</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="hvr-border-fade" disabled>EVENTOS</a>
                 </div>
             </div>
             <hr>

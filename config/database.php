@@ -76,18 +76,6 @@ return [
          ],
         
 
-        //  'warmy'  => [
-        //     'driver'     => 'mysql',
-        //     'host'       => '68.183.25.226',
-        //     'database'   => 'db_institutoe',
-        //     'username'   => 'db_institutoe',
-        //     'password'   => 'Romfespfrim1',
-        //     'charset'    => 'utf8',
-        //     'collation'  => 'utf8_unicode_ci',
-        //     'prefix'     => '',
-        //     'strict'     => false,
-        //  ],
-
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

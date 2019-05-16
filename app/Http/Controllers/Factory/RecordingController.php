@@ -13,10 +13,6 @@ class RecordingController extends Controller
     
     public function index()
     {
-        // $items = DB::select("SELECT * 
-        // from `canvas_courses_usil`
-        // limit 10");
-
         $dnis = DB::connection('awscanvas')->select("SELECT id, dni FROM `silac_professors`");
         $resources = DB::connection('awscanvas')->select("SELECT id, name FROM `factory_educational_resources`");
         $rooms = DB::connection('awscanvas')->select("SELECT * FROM factory_rooms");
@@ -72,7 +68,7 @@ class RecordingController extends Controller
         $data['cabecera'] = null;
 
         try{
-            $informationProgram = DB::connection('awscanvas')->select("SELECT id,programa FROM `silac_courses`
+            $informationProgram = DB::connection('awscanvas')->select("SELECT id,programa,modalidad FROM `silac_courses`
                                                                         WHERE curso = '{$request->courseSelected}' LIMIT 1");
             $data['error']    = 0;
         }catch(Exception $e){
