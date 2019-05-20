@@ -49,7 +49,7 @@
                     <a href="/factory/capacitaciones" class="hvr-border-fade">CAPACITACIONES</a>
                 </div>
                 <div class="col-md-4">
-                    <a href="/factory/events" class="hvr-border-fade" disabled>EVENTOS</a>
+                    <a href="/factory/eventos" class="hvr-border-fade" disabled>EVENTOS</a>
                 </div>
             </div>
             <hr>
