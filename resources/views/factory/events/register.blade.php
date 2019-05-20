@@ -65,7 +65,7 @@
             <section class="error">
         
                 <div class="error__inner" style="padding: 50px; max-width: 800px;">
-                    <form id="form-recording" enctype="multipart/form-data">
+                    <form id="form-event" enctype="multipart/form-data">
                         {{csrf_field()}}
                     
                         <div class="card" style="margin-top: 50px;">
@@ -73,14 +73,14 @@
                                 <div style="width:100%; text-align:left">
                                     <a href="/factory" class="btn btn-primary btn--icon waves-effect"><i class="zmdi zmdi-arrow-back"></i></a>
                                 </div>
-                                <h2 class="card-title">Grabaciones</h2>                            
+                                <h2 class="card-title">Eventos</h2>                            
                                 <small class="card-subtitle">Estimado docente, registre sus datos a continuación:</small>
                                 <!-- <p>Si no aparece su DNI dé clic aquí <button class="btn btn-secondary btn--icon-text waves-effect" disabled><i class="zmdi zmdi-account-add"></i> Agregar DNI</button></p> -->
                             </div>
                             <div class="card-block">
                                 <div class="row">
                                     <div class="col-sm-6 col-md-12">
-                                        <div class="form-group borde-select-danger">                              
+                                        <div class="form-group borde-select">                              
 
                                             <label for="dni">DNI</label>
                                             <select id="dni" name="dni" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" onchange="changeFullName()">
@@ -93,57 +93,16 @@
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select">    
+                                        <div class="form-group borde-select-danger">    
                                             <input type="text" id="nombres" name="nombres" class="form-control form-control-lg" placeholder="Apellidos y Nombres">
                                             <i class="form-group__bar"></i>
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select">                              
-
-                                            <label id="lblCurso" for="curso" style="display:none;">SELECCIONE CURSO</label>
-                                            <select id="curso" name="curso" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" onchange="changeProgram()" disabled>
-                                                <option value="0">:: SELECCIONE CURSO ::</option>
-                                                
-                                            </select>
-                                        </div>
-                                    </div>
+                                   
 
                                     <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select">                              
-
-                                            <input id="program" name="program" type="text" class="form-control form-control-lg" placeholder="Programa" disabled>
-                                            <i class="form-group__bar"></i>
-                                        </div>
-                                    </div>
-
-                                    
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select">                              
-                                            
-                                            <label id="lblResource" for="resource" style="display:none;">SELECCIONE RECURSO EDUCATIVO</label>
-                                            <select id="resource" name="resource" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" >
-                                                <option value="0">:: SELECCIONE RECURSO EDUCATIVO ::</option>
-                                                @foreach( $resources as $resource)
-                                                <option value="{{ $resource->id}}">{{ $resource->name}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select">                              
-
-                                            <input id="week" name="week" type="text" class="form-control form-control-lg" placeholder="Semana Grabada">
-                                            <i class="form-group__bar"></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select-danger">                              
-
+                                        <div class="form-group borde-select">
                                             <label id="lblRoom" for="room" style="display:none;">SELECCIONE LA SALA</label>
                                             <select id="room" name="room" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" required >
                                                 <option value="0">:: SELECCIONE LA SALA ::</option>
@@ -153,35 +112,19 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 col-md-6">                                        
-                                        <div class="input-group borde-select">
-                                            <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
-                                            <div class="form-group">
-                                                <input id="dateStart" name="dateStart" type="text" class="form-control date-picker" >
-                                                <i class="form-group__bar"></i>
-                                            </div>
+
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-group borde-select-danger">
+                                            <input id="event" name="event" type="text" class="form-control form-control-lg" placeholder="Evento">
+                                            <i class="form-group__bar"></i>
                                         </div>
                                     </div>
 
-                                    <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select">                              
-
-                                            <input id="timeStart" name="timeStart" type="text" class="form-control form-control-lg" placeholder="Hora Inicio">
-                                            <i class="form-group__bar"></i>
-                                        </div>
-                                        
-                                    </div>
-                                    <!-- <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select">                              
-
-                                            <input type="text" class="form-control form-control-lg" placeholder="Hora Fin">
-                                            <i class="form-group__bar"></i>
-                                        </div>
-                                    </div> -->
+                                    
 
                                     <div class="col-sm-12 col-md-12">
                                     
-                                        <button type="submit" id="registerRecording" name="registerRecording" class="btn btn-primary btn-round" type="button">Registrar</button>
+                                        <button type="submit" id="registerEvent" name="registerEvent" class="btn btn-primary btn-round" type="button">Registrar</button>
                                     </div>
 
 
@@ -229,11 +172,7 @@
 
                         if(datos.error == 0){
                             $('#nombres').val(datos.information[0].name).trigger('chosen:updated');
-                            $('#curso').html(datos.listaCourses);
-                            $('#curso').val('').trigger('chosen:updated');
-                            $('#lblCurso').show();
-                            $("#curso").removeAttr("disabled", true);
-                            
+                                                        
                         }else{                            
                             mostrarNotificacion('error','Hubo problemas, vuelva a intentarlo. '+datos.error, '');
                         }
@@ -243,79 +182,48 @@
                 }
             }
 
-            function changeProgram(){
-                let courseSelected = $.trim($('#curso').val());
-
-                if(courseSelected != 0){
-                    $.ajax({
-                    type    :   'GET',
-                    'url'   :   '/factory/grabaciones/getProgramForm',
-                    data    :   {   courseSelected     : courseSelected},
-                    'async' :   false
-                    })
-                    .done(function(data){
-                        let datos    =   JSON.parse(data);
-
-                        if(datos.error == 0){
-                            // console.log(datos.program[0].programa);
-                            $('#program').val(datos.program[0].programa).trigger('chosen:updated');                            
-                            $("#program").removeAttr("disabled", true);
-                            // $("#resource").focus();
-
-                        }else{                            
-                            mostrarNotificacion('error','Hubo problemas, vuelva a intentarlo. '+datos.error, '');
-                        }
-                    });
-                }else{
-                    console.log('mostrar un campo adicional');
-                }                
-            }
-
-            $('#form-recording').on('submit', function(e) {
+            $('#form-event').on('submit', function(e) {
                 e.preventDefault();
 
                 let formData = new FormData(this);
                 formData.append('_token', $('input[name=_token]').val());
                 let dni = $('#dni').val();	  
                 let nombres = $('#nombres').val();
-                let curso = $('#curso').val();
-                let program = $('#program').val();
-                let resource = $('#resource').val();
-                let week = $('#week').val();
                 let room = $('#room').val();
-                let dateStart = $('#dateStart').val();
-                let timeStart = $('#timeStart').val();
+                let event = $('#event').val();
 
-                if( dni != 0 ){
-
-                    if( room != 0 ){
-
-                        $.ajax({
-                            type:'POST',
-                            url: '/factory/grabaciones/guardar',
-                            data:formData,
-                            cache:false,
-                            contentType: false,
-                            processData: false,
-                            success:function(data){
-                                data = JSON.parse(data);
-                                // console.log('Validation true!', 'se pudo Añadir los datos<br>',data);
-                                mostrarNotificacion('success','Registro realizado con estado "abierto".', '');
-                                setTimeout("location.href='/factory'", 2500);                                
-                            },
-                            error: function(jqXHR, text, error){
-                                alert('No se pudo Añadir los datos<br>' + error);
-                            }
-                        });
-
-                        console.log('OK');
-
+                console.log(dni,nombres,room,event);
+                
+                if( nombres != '' ){
+                    if( event != '' ){
+                            console.log('enviando');
+                            $.ajax({
+                                type:'POST',
+                                url: '/factory/eventos/guardar',
+                                data:formData,
+                                cache:false,
+                                contentType: false,
+                                processData: false,
+                                success:function(data){
+                                    data = JSON.parse(data);
+                                    mostrarNotificacion('success','Evento registrado.', '');
+                                    setTimeout("location.href='/factory'", 1500);
+                                },
+                                error: function(jqXHR, text, error){
+                                    alert('No se pudo Añadir los datos<br>' + error);
+                                }
+                            });
                         
                     }else{
-                        mostrarNotificacion('error','Seleccione una sala.', '');
+                        mostrarNotificacion('error','Por favor, registre el nombre del evento.', '');
                     }
+
+                        
+
+                        
+                    
                 }else{
-                    mostrarNotificacion('error','Seleccione un DNI de la lista o dé clic en "Agregar DNI".', '');
+                    mostrarNotificacion('error','Por favor, registre los nombres de la persona.', '');
                 }
 
                 
@@ -333,8 +241,6 @@
                 let s = (now.getSeconds().toString().length < 2) ? '0'+now.getSeconds() : now.getSeconds();
                 
                 $("#dateStart").val(today);
-
-                $("#timeStart").val(h+':'+m+':'+s);
                
             })();
         </script>

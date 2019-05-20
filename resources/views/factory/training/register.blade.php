@@ -33,6 +33,9 @@
         .borde-select {
             border-bottom: 1px solid darkgray;
         }
+        .borde-select-danger {
+            border-bottom: 1px solid salmon;
+        }
         .progress {
             cursor: progress;
         }
@@ -72,12 +75,12 @@
                                 </div>
                                 <h2 class="card-title">Capacitaciones</h2>                            
                                 <small class="card-subtitle">Estimado docente, registre sus datos a continuación:</small>
-                                <p>Si no aparece su DNI dé clic aquí <button class="btn btn-secondary btn--icon-text waves-effect" disabled><i class="zmdi zmdi-account-add"></i> Agregar DNI</button></p>
+                                <!-- <p>Si no aparece su DNI dé clic aquí <button class="btn btn-secondary btn--icon-text waves-effect" disabled><i class="zmdi zmdi-account-add"></i> Agregar DNI</button></p> -->
                             </div>
                             <div class="card-block">
                                 <div class="row">
                                     <div class="col-sm-6 col-md-12">
-                                        <div class="form-group borde-select">                              
+                                        <div class="form-group borde-select-danger">                              
 
                                             <label for="dni">DNI</label>
                                             <select id="dni" name="dni" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" onchange="changeFullName()">
@@ -136,7 +139,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select">
+                                        <div class="form-group borde-select-danger">
                                             <select id="responsable" name="responsable" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" required>
                                                 <option value="0">:: SELECCIONE RESPONSABLE ::</option>
                                                 <option value="SUSSANE">SUSSANE</option>
@@ -154,7 +157,7 @@
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <div class="form-group borde-select">
+                                        <div class="form-group borde-select-danger">
                                             <select id="reason" name="reason" class="select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" required>
                                                 <option value="0">:: SELECCIONE CAPACITACIÓN O ASESORÍA ::</option>
                                                 <option value="CAPACITACIÓN">CAPACITACIÓN</option>
