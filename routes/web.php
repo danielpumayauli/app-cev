@@ -32,5 +32,7 @@ Route::post('/factory/endRecording/{idRecord}', 'Factory\RecordingController@end
 Route::get('/factory/capacitaciones', 'Factory\TrainingController@index');
 Route::post('/factory/capacitaciones/guardar', 'Factory\TrainingController@store');
 
-// Route::get('/qa', 'QA\QAController@index');
+Route::get('/factory/events', 'Factory\EventsController@index');
+
+// Route::get('/qa', 'QA\QAController@index'); 
 
