@@ -39,7 +39,7 @@ Route::get('/factory/reportes', 'Factory\ReportsController@index');
 
 // External
 
-Route::get('/api/v1/test', 'Api\HomeController@index');
+Route::get('/api/v1/information', 'Api\HomeController@index');
 
 // Route::get('/qa', 'QA\QAController@index'); 
 
