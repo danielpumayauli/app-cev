@@ -37,5 +37,9 @@ Route::post('/factory/eventos/guardar', 'Factory\EventsController@store');
 
 Route::get('/factory/reportes', 'Factory\ReportsController@index');
 
+// External
+
+Route::get('/api/v1/test', 'Api\HomeController@index');
+
 // Route::get('/qa', 'QA\QAController@index'); 
 
