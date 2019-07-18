@@ -38,7 +38,7 @@
     <section class="">
         
         <div class="error__inner" style="background: rgba(255, 255, 255, 0.8); padding: 50px; max-width: 950px; margin: auto;">
-            <h2>Bienvenido a Digital Learning Factory <span style="font-size:14px"><a href="/factory/reportes" target="_blank">Ver reportes</a></span></h2>
+            <h2>Bienvenido a Digital Learning Factory! <span style="font-size:14px"><a href="/factory/reportes" target="_blank">Ver reportes</a></span></h2>
             <h3>Seleccione un evento:</h3>
 
             <div class="row factory_options">
