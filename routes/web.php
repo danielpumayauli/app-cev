@@ -40,6 +40,7 @@ Route::get('/factory/reportes', 'Factory\ReportsController@index');
 // External
 
 Route::get('/api/v1/information', 'Api\HomeController@index');
+
 Route::get('/api/canvas/users/{dni?}', 'Api\ChatbotController@users');
 Route::get('/api/canvas/courses/{dni?}', 'Api\ChatbotController@courses');
 
