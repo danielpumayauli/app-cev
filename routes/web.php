@@ -42,7 +42,7 @@ Route::get('/factory/reportes', 'Factory\ReportsController@index');
 Route::get('/api/v1/information', 'Api\HomeController@index');
 
 Route::get('/api/canvas/users/{dni?}', 'Api\ChatbotController@users');
-Route::get('/api/canvas/courses/{dni?}', 'Api\ChatbotController@courses');
+Route::get('/api/canvas/courses/{id?}', 'Api\ChatbotController@courses');
 
 // Route::get('/qa', 'QA\QAController@index'); 
 
